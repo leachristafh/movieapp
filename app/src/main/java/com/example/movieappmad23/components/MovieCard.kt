@@ -33,6 +33,15 @@ fun MovieCard(
     onFavoriteClick: (Movie) -> Unit = {},
     onItemClick: (String) -> Unit = {},
     onDeleteClick: (Movie) -> Unit = {},
+    /*
+ Die Funktion übernimmt vier Parameter
+
+movie of type Movie which is a data class representing a movie with its properties like title, director, year of release, plot summary, and images.
+onFavoriteClick of type (Movie) -> Unit which is a lambda function that will be called when the favorite icon is clicked.
+onItemClick of type (String) -> Unit which is a lambda function that will be called when the movie card is clicked.
+onDeleteClick of type (Movie) -> Unit which is a lambda function that will be called when the delete icon is clicked.
+ This code defines a @Composable function called MovieCard that takes in several parameters, including a Movie object, three callback functions
+  (onFavoriteClick, onItemClick, and onDeleteClick), and default values for each parameter. */
 ) {
     var expandedState by remember {
         mutableStateOf(false)
@@ -46,6 +55,14 @@ fun MovieCard(
     var deleteState by remember {
         mutableStateOf(false)
     }
+/*
+Inside the function, it declares a few variables using
+remember and mutableStateOf functions.
+These variables are used to maintain the state of the composable function.
+ expandedState and showDetails are boolean variables, while iconRotation is a Float
+ variable that is updated based on the value of showDetails.
+deleteState is also a boolean variable that is initialized to false and is used to control whether the delete icon is displayed or not
+ */
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -54,13 +71,15 @@ fun MovieCard(
                 onItemClick(movie.id.toString())
             },
         shape = RoundedCornerShape(corner = CornerSize(15.dp)),
-        elevation = 5.dp
+        elevation = 5.dp // add a shadow to the Card and give it a sense of depth.
+
+
     ) {
         Column {
             Box(
                 modifier = Modifier
                     .height(200.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth() //damit es immer ganz ausfüllt
             ) {
                 val painter = rememberAsyncImagePainter(
                     ImageRequest.Builder(LocalContext.current).data(data = movie.images[0])

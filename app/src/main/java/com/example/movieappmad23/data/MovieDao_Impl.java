@@ -509,3 +509,10 @@ public final class MovieDao_Impl implements MovieDao {
     }
 
 }
+/*
+
+> DAOs (Data Access Objects) provide
+methods that the app uses to do
+CRUD operations
+
+ */

@@ -7,7 +7,19 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.movieapp.models.Movie
 import com.example.movieapp.utils.CustomConverters
+/*
+Room
 
+> Room is a database library from Jetpack which provides a
+wrapper over SQLite
+> Instead of using SQLite directly, Room simplifies db setup,
+configurations and interactions
+> Data classes in Kotlin provide an easy way to work with inmemory data
+> When persisting data, we need to convert this data into a format
+compatible with database storage ->
+> Tables to store data
+> Queries to access and modify data
+ */
 @Database(
     entities = [Movie::class],
     version = 1,

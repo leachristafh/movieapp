@@ -24,7 +24,9 @@ import java.util.Set;
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class MovieDatabase_Impl extends MovieDatabase {
     private volatile MovieDao _movieDao;
-
+/*
+provides m app with instances of the dao
+ */
     @Override
     protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
         final RoomOpenHelper _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
